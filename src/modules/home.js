@@ -3,35 +3,34 @@ import { motion } from "framer-motion";
 import Item from "../components/card/items";
 
 function Home() {
-
   const data = [
     {
       id: 1,
-      name: "Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
+      name: "Item 1",
       image:
         "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 98,
+      price: 5000,
     },
     {
       id: 2,
-      name: "Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
+      name: "Item 2",
       image:
         "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 98,
+      price: 10000,
     },
     {
       id: 3,
-      name: "Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
+      name: "Item 3",
       image:
         "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 98,
+      price: 50000,
     },
     {
       id: 4,
-      name: "Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric",
+      name: "Item 4",
       image:
         "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 98,
+      price: 100000,
     },
   ];
 
@@ -48,7 +47,7 @@ function Home() {
         </motion.h2>
         <div className="grid mt-6 lg:grid-cols-3 grid-cols-2 gap-4">
           {data.map((d, index) => (
-            <div key={index}>
+            <div key={index} className="p-4">
               <Item id={d.id} title={d.name} price={d.price} image={d.image} />
             </div>
           ))}
