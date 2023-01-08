@@ -1,25 +1,31 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addQuantity, deleteCart, reduceQuantity } from "../../app/slices/cart";
+import { Add, Delete, Subtract } from "../../assets";
 
-const CardItems = ({ id, qty = 0, image, name, price }) => {
+const CardItems = ({ id, qty, image, name, price }) => {
   const dispatch = useDispatch();
 
   return (
-    <div>
-      <p>{qty}</p>
-      <img src={image} alt="itemsgraphic" />
-      <div>
-        <h2>{name}</h2>
+    <div className="flex items-center gap-4">
+      <img className="w-60" src={image} alt="itemsgraphic" />
+      <div className="flex w-full flex-col items-start gap-y-2">
+        <h2 className="font-semibold">Ticket Name : {name}</h2>
+        <p>{qty}</p>
         <p>
-          <span>₦</span>
-          {price}
+         {price}
         </p>
-      </div>
-      <div className="flex gap-3 w-full items-center">
-        <button onClick={() => dispatch(addQuantity(id))}>+</button>
-        <button onClick={() => dispatch(deleteCart(id))}>delete</button>
-        <button onClick={() => dispatch(reduceQuantity(id))}>-</button>
+        <div className="flex mt-4 gap-3 w-full items-center">
+          <button onClick={() => dispatch(addQuantity(id))}>
+            <Add />
+          </button>
+          <button onClick={() => dispatch(deleteCart(id))}>
+            <Delete />
+          </button>
+          <button onClick={() => dispatch(reduceQuantity(id))}>
+            <Subtract />
+          </button>
+        </div>
       </div>
     </div>
   );
