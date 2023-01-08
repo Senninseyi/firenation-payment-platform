@@ -6,9 +6,9 @@ function Items({ id, title, price, image }) {
   const dispatch = useDispatch();
 
   return (
-    <div className="bg-white p-4 flex flex-col gap-4">
+    <div className="bg-white p-4 rounded-md shadow-xl flex items-center justify-center flex-col gap-4">
       <img src={image} className="w-36 h-36" alt="item" />
-      <p>{title}</p>
+      <p className="font-semibold text-center">{title}</p>
       <p>
         <span>₦</span>
         {price}
