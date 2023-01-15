@@ -12,7 +12,7 @@ const Cart = () => {
 
     cart.forEach((item) => {
       totalQty += item.quantity;
-      totalPrice += item.price.props.value;
+      totalPrice += item.price.props.value * totalQty;
     });
 
     return { totalPrice, totalQty };
@@ -20,7 +20,7 @@ const Cart = () => {
 
   const quantity = <span>Total quantity : {getTotal().totalQty}</span>;
 
-  const price = getTotal().totalPrice * getTotal().totalQty;
+  const price = getTotal().totalPrice;
 
   if (cart.length === 0) {
     return (
