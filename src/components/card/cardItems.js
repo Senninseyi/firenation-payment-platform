@@ -1,5 +1,5 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { addQuantity, deleteCart, reduceQuantity } from "../../app/slices/cart";
 import { Add, Delete, Subtract } from "../../assets";
 
@@ -7,23 +7,34 @@ const CardItems = ({ id, qty, image, name, price }) => {
   const dispatch = useDispatch();
 
   return (
-    <div className="flex items-center gap-4">
-      <img className="w-60" src={image} alt="itemsgraphic" />
-      <div className="flex w-full flex-col items-start gap-y-2">
-        <h2 className="font-semibold">Ticket Name : {name}</h2>
-        <p>{qty}</p>
-        <p>
-         {price}
-        </p>
-        <div className="flex mt-4 gap-3 w-full items-center">
-          <button onClick={() => dispatch(addQuantity(id))}>
-            <Add />
+    <div className="flex flex-col items-center gap-4">
+      <img className="" src={image} alt="itemsgraphic" />
+      <div className="flex w-full justify-around">
+        <div className="flex flex-col p-4 gap-y-2">
+          <h2 className="font-semibold tracking-[0.065em]">
+            Ticket Name : {name}
+          </h2>
+          <p className="tracking-[0.065em]">{qty}</p>
+          <p className="tracking-[0.065em]">{price}</p>
+        </div>
+        <div className="flex mt-4 gap-3 items-start">
+          <button
+            className="flex gap-3 items-center py-2 px-3 bg-primary text-white rounded-md"
+            onClick={() => dispatch(addQuantity(id))}
+          >
+            <Add /> add
           </button>
-          <button onClick={() => dispatch(deleteCart(id))}>
-            <Delete />
+          <button
+            className="flex gap-3 items-center py-2 px-3 bg-primary text-secondary hover:text-white rounded-md"
+            onClick={() => dispatch(deleteCart(id))}
+          >
+            <Delete /> delete
           </button>
-          <button onClick={() => dispatch(reduceQuantity(id))}>
-            <Subtract />
+          <button
+            className="flex gap-3 items-center py-2 px-3 bg-primary text-secondary hover:text-white rounded-md"
+            onClick={() => dispatch(reduceQuantity(id))}
+          >
+            <Subtract /> subtract
           </button>
         </div>
       </div>
