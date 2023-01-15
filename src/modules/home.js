@@ -1,36 +1,38 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Item from "../components/card/items";
+import Entry from "../assets/entry.jpeg";
+import BlueFlame from "../assets/blueflame.jpeg";
+import RedFlame from "../assets/redflame.jpeg";
+import YellowFlame from "../assets/yellowflame.jpeg";
+import CurrencyFormat from "react-currency-format";
 
 function Home() {
+  
   const data = [
     {
       id: 1,
-      name: "Item 1",
-      image:
-        "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 5000,
+      name: "Entry",
+      image: Entry,
+      price: "6000",
     },
     {
       id: 2,
-      name: "Item 2",
-      image:
-        "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 10000,
+      name: "Blue Flame",
+      image: BlueFlame,
+      price: "500000",
     },
     {
       id: 3,
-      name: "Item 3",
-      image:
-        "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 50000,
+      name: "Yellow Flame",
+      image: YellowFlame,
+      price: "250000",
     },
     {
       id: 4,
-      name: "Item 4",
-      image:
-        "https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300x400_retinamobilex2$",
-      price: 100000,
+      name: "Red Flame",
+      image: RedFlame,
+      price: "1000000",
     },
   ];
 
@@ -41,14 +43,26 @@ function Home() {
           Get your tickets now
         </motion.h2>
       </div>
-      <div>
+      <div className="flex items-center justify-center flex-col">
         <motion.h2 className="font-bold text-2xl text-center">
           Buy Tickets
         </motion.h2>
-        <div className="grid mt-6 lg:grid-cols-3 grid-cols-2 gap-4">
+        <div className="grid mt-6 md:grid-cols-2 grid-cols-1 w-full max-w-5xl gap-4">
           {data.map((d, index) => (
             <div key={index} className="p-4">
-              <Item id={d.id} title={d.name} price={d.price} image={d.image} />
+              <Item
+                id={d.id}
+                title={d.name}
+                price={
+                  <CurrencyFormat
+                    value={d.price}
+                    displayType={"text"}
+                    thousandSeparator={true}
+                    prefix={"₦"}
+                  />
+                }
+                image={d.image}
+              />
             </div>
           ))}
         </div>
