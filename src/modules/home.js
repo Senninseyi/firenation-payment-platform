@@ -5,36 +5,40 @@ import Entry from "../assets/entry.jpeg";
 import BlueFlame from "../assets/blueflame.jpeg";
 import RedFlame from "../assets/redflame.jpeg";
 import YellowFlame from "../assets/yellowflame.jpeg";
-import CurrencyFormat from "react-currency-format";
 
 function Home() {
-  
   const data = [
     {
       id: 1,
       name: "Entry",
       image: Entry,
-      price: "6000",
+      price: 6000,
     },
     {
       id: 2,
       name: "Blue Flame",
       image: BlueFlame,
-      price: "500000",
+      price: 500000,
     },
     {
       id: 3,
       name: "Yellow Flame",
       image: YellowFlame,
-      price: "250000",
+      price: 250000,
     },
     {
       id: 4,
       name: "Red Flame",
       image: RedFlame,
-      price: "1000000",
+      price: 1000000,
     },
   ];
+
+  let nairaCurrency = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    currencyDisplay: "symbol",
+  });
 
   return (
     <div className="mt-16 w-full">
@@ -53,14 +57,7 @@ function Home() {
               <Item
                 id={d.id}
                 title={d.name}
-                price={
-                  <CurrencyFormat
-                    value={d.price}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    prefix={"₦"}
-                  />
-                }
+                price={nairaCurrency.format(d.price)}
                 image={d.image}
               />
             </div>
