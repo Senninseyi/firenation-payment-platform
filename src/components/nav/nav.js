@@ -7,8 +7,6 @@ import { NavLinks } from "./navlinks";
 export const Nav = () => {
   const [openNav, setOpenNav] = useState(false);
 
-  console.log(openNav);
-
   const cart = useSelector((state) => state.cart.carts);
 
   const getTotalCart = () => {
