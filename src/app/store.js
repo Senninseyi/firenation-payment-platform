@@ -10,7 +10,9 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
+  createTransform
 } from "redux-persist";
+import ModalReducer from "./slices/modal";
 
 const persistConfig = {
   key: "root",
@@ -20,7 +22,10 @@ const persistConfig = {
 const persistedReducer = persistReducer(persistConfig, CartReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    cart: persistedReducer,
+    modal: ModalReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
