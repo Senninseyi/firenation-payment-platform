@@ -9,7 +9,7 @@ export const Nav = () => {
 
   console.log(openNav);
 
-  const cart = useSelector((state) => state.carts);
+  const cart = useSelector((state) => state.cart.carts);
 
   const getTotalCart = () => {
     let total = 0;
