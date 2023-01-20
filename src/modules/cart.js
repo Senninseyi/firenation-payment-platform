@@ -1,31 +1,36 @@
-import React from "react";
-import CurrencyFormat from "react-currency-format";
-import { useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import CartItems from "../components/card/cardItems";
+import { Modal } from "../components/modal/modal";
+import { showModal, hideModal } from "../app/slices/modal";
+import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
-  const cart = useSelector((state) => state.carts);
+  const modal = useSelector((state) => state.modal.modals);
+  const cart = useSelector((state) => state.cart.carts);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  const getTotal = () => {
-    let totalQty = 0;
-    let totalPrice = 0;
+  // console.log(cart);
 
-    cart.forEach((item) => {
-      totalQty += item.quantity;
-      totalPrice += item.price.props.value * totalQty;
-    });
+  const navigate = useNavigate();
 
-    return { totalPrice, totalQty };
+  const dispatch = useDispatch();
+
+  const triggerModal = () => {
+    dispatch(showModal());
   };
 
-  const quantity = <span>Total quantity : {getTotal().totalQty}</span>;
-
-  const price = getTotal().totalPrice;
+  let nairaCurrency = new Intl.NumberFormat("en-NG", {
+    style: "currency",
+    currency: "NGN",
+    currencyDisplay: "symbol",
+  });
 
   if (cart.length === 0) {
     return (
       <div className="mt-24">
         <p className="tracking-[0.065em]">No Cart</p>
+        <button onClick={() => navigate("/")}>Go buy your tickets</button>
       </div>
     );
   }
@@ -41,24 +46,25 @@ const Cart = () => {
             name={_.title}
             price={
               <>
-                <span>
-                  Price is{" "}
-                  <CurrencyFormat
-                    value={price}
-                    displayType={"text"}
-                    thousandSeparator={true}
-                    prefix={"₦"}
-                  />
-                </span>
+                <span>Total Price : {nairaCurrency.format(totalPrice)}</span>
               </>
             }
-            qty={quantity}
+            qty={
+              <>
+                <span>Total quantity : {_.quantity}</span>
+              </>
+            }
           />
         ))}
-        <button className="bg-primary text-white w-fit mb-6 px-4 py-2 tracking-[0.065em] rounded-md">
+        <button
+          onClick={() => triggerModal()}
+          className="bg-primary text-white w-fit mb-6 px-4 py-2 tracking-[0.065em] rounded-md"
+        >
           Proceed to checkout
         </button>
       </div>
+
+      {modal && <Modal open={modal} close={() => dispatch(hideModal())} />}
     </div>
   );
 };
