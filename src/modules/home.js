@@ -41,9 +41,9 @@ function Home() {
   });
 
   return (
-    <div className="mt-16 w-full">
-      <div className="w-full flex items-center flex-col justify-center h-48">
-        <motion.h2 className="font-bold text-4xl text-center">
+    <div className="mt-20 w-full flex flex-col gap-8 justify-center items-center">
+      <div className="w-full max-w-5xl flex items-center bg-black flex-col justify-center h-48">
+        <motion.h2 className="font-bold text-7xl font-mono text-white capitalize text-center">
           Get your tickets now
         </motion.h2>
       </div>
@@ -51,7 +51,7 @@ function Home() {
         <motion.h2 className="font-bold text-2xl text-center">
           Buy Tickets
         </motion.h2>
-        <div className="grid mt-6 md:grid-cols-2 grid-cols-1 w-full max-w-5xl gap-4">
+        <div className="grid mt-6 md:grid-cols-2 lg: grid-cols-1 w-full max-w-5xl gap-4">
           {data.map((d, index) => (
             <div key={index} className="p-4">
               <Item

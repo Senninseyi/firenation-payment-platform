@@ -7,7 +7,7 @@ const Layout = ({ children }) => {
     <div className="w-full flex items-center h-full flex-col justify-center">
       <div className="w-full max-w-[105rem]">
         <Nav />
-        <main className="px-8 py-3 w-full h-full min-h-screen bg-secondary">
+        <main className="px-8 py-3 w-full h-full min-h-screen bg-white">
           {children}
         </main>
         {/* <Footer /> */}
