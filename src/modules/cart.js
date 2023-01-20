@@ -10,8 +10,6 @@ const Cart = () => {
   const cart = useSelector((state) => state.cart.carts);
   const totalPrice = useSelector((state) => state.cart.totalPrice);
 
-  // console.log(cart);
-
   const navigate = useNavigate();
 
   const dispatch = useDispatch();
