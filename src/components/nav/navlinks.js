@@ -22,7 +22,7 @@ export const NavLinks = ({ open }) => {
       }
     >
       {links.map((l, index) => (
-        <li className="text-white lg:text-black" key={index}>
+        <li className="text-white tracking-[0.065rem] lg:text-black" key={index}>
           <Link to={l.link}>{l.label}</Link>
         </li>
       ))}

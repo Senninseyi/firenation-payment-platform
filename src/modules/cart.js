@@ -26,9 +26,15 @@ const Cart = () => {
 
   if (cart.length === 0) {
     return (
-      <div className="mt-24">
+      <div className="mt-24 flex justify-center items-center flex-col gap-8">
         <p className="tracking-[0.065em]">No Cart</p>
-        <button onClick={() => navigate("/")}>Go buy your tickets</button>
+        <button
+          className="tracking-[0.065em] bg-secondary px-5 py-3 rounded-md
+         shadow-md font-medium text-white"
+          onClick={() => navigate("/")}
+        >
+          Go buy your tickets
+        </button>
       </div>
     );
   }
