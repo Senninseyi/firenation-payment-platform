@@ -10,7 +10,7 @@ export const Logo = ({ width, height }) => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <circle cx="476.5" cy="476.5" r="476.5" fill="white" />
+        <circle cx="476.5" cy="476.5" r="476.5" fill="transparent" />
         <path
           fillRule="evenodd"
           clipRule="evenodd"
