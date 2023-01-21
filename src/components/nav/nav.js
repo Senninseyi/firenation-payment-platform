@@ -22,7 +22,7 @@ export const Nav = () => {
   };
 
   return (
-    <nav className="flex items-center bg-white fixed top-0 left-0 justify-center w-full">
+    <nav className="flex items-center bg-white fixed z-10 top-0 left-0 justify-center w-full">
       <div className="max-w-[105rem] w-full shadow-md h-16 px-6 flex justify-between items-center">
         <div>
           <Link to="/">
