@@ -40,7 +40,7 @@ function Items({ id, title, price, image }) {
           alt="item"
         />
       )}
-      <div className="flex items-start justify-between w-full p-4">
+      <div className="flex items-start justify-between w-full md:min-w-full p-4">
         <div className="flex flex-col">
           <p className="font-semibold tracking-[0.065em]">{title}</p>
           <p className="tracking-[0.065em]">{price}</p>
