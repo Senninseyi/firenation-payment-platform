@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { motion } from "framer-motion";
 import Item from "../components/card/items";
 import Entry from "../assets/entry.jpeg";

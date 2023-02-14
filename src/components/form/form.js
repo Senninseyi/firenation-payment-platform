@@ -28,7 +28,7 @@ export const PaymentForm = () => {
       email: formData.email,
       metadata: formData,
     });
-  }, [formData]);
+  }, [formData,config]);
 
   const handleChange = (e) => {
     setFormData({

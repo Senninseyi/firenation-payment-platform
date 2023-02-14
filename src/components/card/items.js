@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
+import { useDispatch } from "react-redux";
 import { addCart, updatePrice } from "../../app/slices/cart";
 import { LazyLoadImage } from "react-lazy-load-image-component";
 import "react-lazy-load-image-component/src/effects/blur.css";
 
 function Items({ id, title, price, image }) {
-  const cart = useSelector((state) => state.cart.carts);
-  const totalPrice = useSelector((state) => state.cart.totalPrice);
-
   const dispatch = useDispatch();
 
   const dispatchFiltered = () => {
@@ -34,11 +31,7 @@ function Items({ id, title, price, image }) {
           alt="item"
         />
       ) : (
-        <img
-          src={image}
-          className="object-cover w-full h-full"
-          alt="item"
-        />
+        <img src={image} className="object-cover w-full h-full" alt="item" />
       )}
       <div className="flex items-start justify-between w-full md:min-w-full p-4">
         <div className="flex flex-col">

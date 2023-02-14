@@ -10,7 +10,6 @@ import {
   PERSIST,
   PURGE,
   REGISTER,
-  createTransform
 } from "redux-persist";
 import ModalReducer from "./slices/modal";
 

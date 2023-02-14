@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
         <main className="px-8 py-3 w-full h-full min-h-screen bg-white">
           {children}
         </main>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     </div>
   );
